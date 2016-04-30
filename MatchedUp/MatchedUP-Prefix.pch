@@ -1,0 +1,23 @@
+//
+//  MatchedUp-Prefix.pch
+//  MatchedUp
+//
+//  Created by aTo on 29/04/2016.
+//  Copyright © 2016 aTo. All rights reserved.
+//
+
+#ifndef MatchedUp_Prefix_pch
+#define MatchedUp_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
+#import <ParseFacebookUtilsV4/ParseFacebookUtilsV4.h>
+
+
+#endif /* MatchedUp_Prefix_pch */
