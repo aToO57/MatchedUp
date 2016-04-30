@@ -9,7 +9,9 @@
 #import "loginViewController.h"
 
 @interface loginViewController ()
+
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) NSMutableData *imageData;
 
 @end
 
@@ -21,6 +23,19 @@
     
     self.activityIndicator.hidden = YES;
 
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+ 
+    // Check if user is cached and linked to Facebook, if so, bypass login
+    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+        [self updateUserInformation];
+        
+        NSLog(@"the user is already signed in ");
+        [self performSegueWithIdentifier:@"loginToTabBarSegue" sender:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,7 +74,6 @@
         }
         else{
             
-            NSLog(@"User : %@  - error : %@", user, error);
             [self updateUserInformation];
             [self performSegueWithIdentifier:@"loginToTabBarSegue" sender:self];
 
@@ -83,35 +97,43 @@
          {
              if (!error) {
                  NSDictionary *userDictionary = (NSDictionary *)result;
+                 
+                 //create URL
+                 NSString *facebookID = userDictionary[@"id"];
+                 NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
+                 
                  NSMutableDictionary *userProfile = [[NSMutableDictionary alloc] initWithCapacity:8];
-                 NSLog(@"fetched user:%@", result);
                  if(userDictionary[@"name"]){
-                     userProfile[@"name"] = userDictionary[@"name"];
+                     userProfile[kUserProfileNameKey] = userDictionary[@"name"];
                  }
                  if (userDictionary[@"first_name"]) {
-                     userProfile[@"first_name"] = userDictionary[@"first_name"];
-                 }
-                 if (userDictionary[@"email"]) {
-                     userProfile[@"email"] = userDictionary[@"email"];
+                     userProfile[kUserProfileFirstNameKey] = userDictionary[@"first_name"];
                  }
                  if (userDictionary[@"last_name"]) {
-                     userProfile[@"last_name"] = userDictionary[@"last_name"];
+                     userProfile[kUserProfileLastNameKey] = userDictionary[@"last_name"];
+                 }
+                 if (userDictionary[@"email"]) {
+                     userProfile[kUserProfileEmailKey] = userDictionary[@"email"];
                  }
                  if (userDictionary[@"location"][@"name"]) {
-                     userProfile[@"location"] = userDictionary[@"location"][@"name"];
+                     userProfile[kUserProfileLocationKey] = userDictionary[@"location"][@"name"];
                  }
                  if (userDictionary[@"gender"]) {
-                     userProfile[@"gender"] = userDictionary[@"gender"];
+                     userProfile[kUserProfileGenderKey] = userDictionary[@"gender"];
                  }
                  if (userDictionary[@"birthday"]) {
-                     userProfile[@"birthday"] = userDictionary[@"birthday"];
+                     userProfile[kUserProfileBirthdayKey] = userDictionary[@"birthday"];
                  }
                  if (userDictionary[@"user_about_me"]) {
-                     userProfile[@"user_about_me"] = userDictionary[@"user_about_me"];
-                     
+                     userProfile[kUserProfileAboutMe] = userDictionary[@"user_about_me"];
                  }
-                 [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
+                 if ([pictureURL absoluteString]){
+                     userProfile[kUserProfilePictureURL] = [pictureURL absoluteString];
+                 }
+                 [[PFUser currentUser] setObject:userProfile forKey:kUserProfileKey];
                  [[PFUser currentUser] saveInBackground];
+                 
+                 [self requestImage];
              }
              else {
                  NSLog(@"Error in Facebook Request %@", error);
@@ -120,4 +142,58 @@
     }
 }
 
+-(void)uploadPFFileToParse:(UIImage *)image
+{
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.8);
+    if(!imageData){
+        NSLog(@"ImageData was not found.");
+        return;
+    }
+    PFFile *photoFile = [PFFile fileWithData:imageData];
+    [photoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            PFObject *photo = [PFObject objectWithClassName:kPhotoClassKey];
+            [photo setObject:[PFUser currentUser] forKey:kPhotoUserKey];
+            [photo setObject:photoFile forKey:kPhotoPictureKey];
+            [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                NSLog(@"Photo saved successfully");
+            }];
+        }
+    }];
+    
+}
+
+- (void)requestImage
+{
+    PFQuery *query = [PFQuery queryWithClassName:kPhotoClassKey];
+    [query whereKey:kPhotoUserKey equalTo:[PFUser currentUser]];
+    
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError * _Nullable error) {
+        if(number == 0){
+            PFUser *user = [PFUser currentUser];
+            self.imageData = [[NSMutableData alloc] init];
+            
+            NSURL *profilPictureURL = [NSURL URLWithString:user[kUserProfileKey][kUserProfilePictureURL]];
+            NSURLRequest *urlRequest = [NSURLRequest requestWithURL:profilPictureURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:4.0f];
+            NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+            if(!urlConnection) {
+                NSLog(@"Failed to Download Picture");
+            }
+        }
+    }];
+    
+}
+
+#pragma mark - NSURLConnectionDataDelegate
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [self.imageData appendData:data];
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    UIImage *profileImage = [UIImage imageWithData:self.imageData];
+    [self uploadPFFileToParse:profileImage];
+}
 @end
