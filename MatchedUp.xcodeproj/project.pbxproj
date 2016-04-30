@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		5A5555D91CD3DB2600B237E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5555D81CD3DB2600B237E5 /* main.m */; };
 		5A5555DC1CD3DB2600B237E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5555DB1CD3DB2600B237E5 /* AppDelegate.m */; };
-		5A5555DF1CD3DB2600B237E5 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5555DE1CD3DB2600B237E5 /* FirstViewController.m */; };
-		5A5555E21CD3DB2600B237E5 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5555E11CD3DB2600B237E5 /* SecondViewController.m */; };
 		5A5555E51CD3DB2600B237E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5555E31CD3DB2600B237E5 /* Main.storyboard */; };
 		5A5555E71CD3DB2600B237E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A5555E61CD3DB2600B237E5 /* Assets.xcassets */; };
 		5A5555EA1CD3DB2600B237E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5555E81CD3DB2600B237E5 /* LaunchScreen.storyboard */; };
@@ -58,10 +56,6 @@
 		5A5555D81CD3DB2600B237E5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5A5555DA1CD3DB2600B237E5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5A5555DB1CD3DB2600B237E5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5A5555DD1CD3DB2600B237E5 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		5A5555DE1CD3DB2600B237E5 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		5A5555E01CD3DB2600B237E5 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		5A5555E11CD3DB2600B237E5 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		5A5555E41CD3DB2600B237E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5A5555E61CD3DB2600B237E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A5555E91CD3DB2600B237E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -164,10 +158,6 @@
 				5A5555DB1CD3DB2600B237E5 /* AppDelegate.m */,
 				5A5555E31CD3DB2600B237E5 /* Main.storyboard */,
 				5A55560D1CD3DB3000B237E5 /* Login */,
-				5A5555DD1CD3DB2600B237E5 /* FirstViewController.h */,
-				5A5555DE1CD3DB2600B237E5 /* FirstViewController.m */,
-				5A5555E01CD3DB2600B237E5 /* SecondViewController.h */,
-				5A5555E11CD3DB2600B237E5 /* SecondViewController.m */,
 				5A5555D71CD3DB2600B237E5 /* Supporting Files */,
 			);
 			path = MatchedUp;
@@ -391,10 +381,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A5555E21CD3DB2600B237E5 /* SecondViewController.m in Sources */,
 				5A5556101CD3DC1600B237E5 /* loginViewController.m in Sources */,
 				5A5555DC1CD3DB2600B237E5 /* AppDelegate.m in Sources */,
-				5A5555DF1CD3DB2600B237E5 /* FirstViewController.m in Sources */,
 				5A5555D91CD3DB2600B237E5 /* main.m in Sources */,
 				5AE5CB911CD4B9F20017C71C /* Constants.m in Sources */,
 			);
