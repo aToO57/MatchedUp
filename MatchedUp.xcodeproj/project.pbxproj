@@ -15,6 +15,7 @@
 		5A5555F51CD3DB2600B237E5 /* MatchedUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5555F41CD3DB2600B237E5 /* MatchedUpTests.m */; };
 		5A5556001CD3DB2600B237E5 /* MatchedUpUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5555FF1CD3DB2600B237E5 /* MatchedUpUITests.m */; };
 		5A5556101CD3DC1600B237E5 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A55560F1CD3DC1600B237E5 /* loginViewController.m */; };
+		5A61A1531CD6022000FA9E18 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A61A1521CD6022000FA9E18 /* HomeViewController.m */; };
 		5AE5CB911CD4B9F20017C71C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE5CB901CD4B9F20017C71C /* Constants.m */; };
 		5AEB89E31CD3F26500F140DE /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEB89E11CD3F26500F140DE /* Bolts.framework */; };
 		5AEB89E41CD3F26500F140DE /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEB89E21CD3F26500F140DE /* Parse.framework */; };
@@ -68,6 +69,8 @@
 		5A5556011CD3DB2600B237E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A55560E1CD3DC1600B237E5 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		5A55560F1CD3DC1600B237E5 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
+		5A61A1511CD6022000FA9E18 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		5A61A1521CD6022000FA9E18 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		5AE5CB8F1CD4B9F20017C71C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		5AE5CB901CD4B9F20017C71C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		5AEB89E11CD3F26500F140DE /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -158,6 +161,7 @@
 				5A5555DB1CD3DB2600B237E5 /* AppDelegate.m */,
 				5A5555E31CD3DB2600B237E5 /* Main.storyboard */,
 				5A55560D1CD3DB3000B237E5 /* Login */,
+				5A61A1501CD601D800FA9E18 /* Home */,
 				5A5555D71CD3DB2600B237E5 /* Supporting Files */,
 			);
 			path = MatchedUp;
@@ -202,6 +206,15 @@
 				5A55560F1CD3DC1600B237E5 /* loginViewController.m */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		5A61A1501CD601D800FA9E18 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5A61A1511CD6022000FA9E18 /* HomeViewController.h */,
+				5A61A1521CD6022000FA9E18 /* HomeViewController.m */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 		5AEB89DF1CD3DD8C00F140DE /* FrameWork */ = {
@@ -384,6 +397,7 @@
 				5A5556101CD3DC1600B237E5 /* loginViewController.m in Sources */,
 				5A5555DC1CD3DB2600B237E5 /* AppDelegate.m in Sources */,
 				5A5555D91CD3DB2600B237E5 /* main.m in Sources */,
+				5A61A1531CD6022000FA9E18 /* HomeViewController.m in Sources */,
 				5AE5CB911CD4B9F20017C71C /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

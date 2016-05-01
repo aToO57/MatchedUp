@@ -38,11 +38,100 @@
                     <navigationItem key="navigationItem" id="4Wr-0c-UQ6"/>
                     <connections>
                         <outlet property="activityIndicator" destination="L2F-It-HYF" id="hAu-cm-b4S"/>
+                        <segue destination="uYV-fn-h58" kind="push" identifier="loginToHomeSegue" id="feu-T1-fvr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Xn-1d-uPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="107" y="0.0"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="XDZ-Z6-rTq">
+            <objects>
+                <viewController id="uYV-fn-h58" customClass="HomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mbu-is-FMs"/>
+                        <viewControllerLayoutGuide type="bottom" id="ikT-jj-MO6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WFT-s7-NaQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BGa-9b-ZtV">
+                                <rect key="frame" x="160" y="72" width="280" height="280"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yp1-36-F8Z">
+                                <rect key="frame" x="20" y="550" width="60" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Like"/>
+                                <connections>
+                                    <action selector="likeButtonPressed:" destination="uYV-fn-h58" eventType="touchUpInside" id="UOy-jc-1HY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCC-Py-HSt">
+                                <rect key="frame" x="255" y="550" width="60" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Info"/>
+                                <connections>
+                                    <action selector="infoButtonPressed:" destination="uYV-fn-h58" eventType="touchUpInside" id="t1e-qI-FGT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="firstName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCR-Ue-Cke">
+                                <rect key="frame" x="20" y="376" width="150" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="age" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kru-41-mw2">
+                                <rect key="frame" x="430" y="376" width="150" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tagLine" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Dh-eS-EWV">
+                                <rect key="frame" x="20" y="410" width="560" height="108"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Paj-v6-Bae">
+                                <rect key="frame" x="520" y="550" width="60" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Dislike"/>
+                                <connections>
+                                    <action selector="dislikeButtonPressed:" destination="uYV-fn-h58" eventType="touchUpInside" id="l2l-vi-G9w"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vkl-YG-dIm">
+                        <barButtonItem key="leftBarButtonItem" title="Chat" id="jpc-qG-QLk">
+                            <connections>
+                                <action selector="chatBarButtonItemPressed:" destination="uYV-fn-h58" id="BCn-gc-hhr"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="bTe-ce-mu9">
+                            <connections>
+                                <action selector="settingsBarButtonItemPressed:" destination="uYV-fn-h58" id="sI8-qu-jj3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ageLabel" destination="kru-41-mw2" id="LR3-Io-pmp"/>
+                        <outlet property="chatBarButtonItem" destination="jpc-qG-QLk" id="BJT-NK-fqU"/>
+                        <outlet property="dislikeButton" destination="Paj-v6-Bae" id="UC7-Ec-lTe"/>
+                        <outlet property="firstNameLabel" destination="HCR-Ue-Cke" id="k3p-ew-Fed"/>
+                        <outlet property="infoButton" destination="QCC-Py-HSt" id="0HB-HS-RSA"/>
+                        <outlet property="likeButton" destination="yp1-36-F8Z" id="ED6-x2-3Px"/>
+                        <outlet property="photoImageView" destination="BGa-9b-ZtV" id="xcF-5r-vxb"/>
+                        <outlet property="settingsBarButtonItem" destination="bTe-ce-mu9" id="7vY-9W-b5Q"/>
+                        <outlet property="tagLineLabel" destination="9Dh-eS-EWV" id="vhQ-Eh-tDb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xyX-2m-Zc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="788" y="0.0"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8GS-sb-ChE">
