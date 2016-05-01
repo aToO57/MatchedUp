@@ -34,7 +34,7 @@
         [self updateUserInformation];
         
         NSLog(@"the user is already signed in ");
-        [self performSegueWithIdentifier:@"loginToTabBarSegue" sender:self];
+        [self performSegueWithIdentifier:@"loginToHomeSegue" sender:self];
     }
 }
 
@@ -75,7 +75,7 @@
         else{
             
             [self updateUserInformation];
-            [self performSegueWithIdentifier:@"loginToTabBarSegue" sender:self];
+            [self performSegueWithIdentifier:@"loginToHomeSegue" sender:self];
 
         }
     }];
@@ -123,9 +123,19 @@
                  }
                  if (userDictionary[@"birthday"]) {
                      userProfile[kUserProfileBirthdayKey] = userDictionary[@"birthday"];
+                     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                     [formatter setDateStyle:NSDateFormatterShortStyle];
+                     NSDate *date = [formatter dateFromString:userDictionary[@"birthday"]];
+                     NSDate *now = [NSDate date];
+                     NSTimeInterval seconds = [now timeIntervalSinceDate:date];
+                     int age = seconds / 31536000;
+                     userProfile[kUserProfileAgeKey] = @(age);
                  }
                  if (userDictionary[@"user_about_me"]) {
                      userProfile[kUserProfileAboutMe] = userDictionary[@"user_about_me"];
+                 }
+                 if (userDictionary[@"relationship_status"]) {
+                     userProfile[kUserProfileRelationshipStatusKey] = userDictionary[@"relationship_status"];
                  }
                  if ([pictureURL absoluteString]){
                      userProfile[kUserProfilePictureURL] = [pictureURL absoluteString];
