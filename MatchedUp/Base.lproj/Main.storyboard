@@ -202,6 +202,7 @@
                                 <state key="normal" title="Edit Profile"/>
                                 <connections>
                                     <action selector="editProfileButtonPressed:" destination="zdb-gt-nIA" eventType="touchUpInside" id="KAW-tC-fAW"/>
+                                    <segue destination="b1Z-0v-Mvn" kind="push" id="B13-fw-LNK"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="18" minValue="18" maxValue="99" translatesAutoresizingMaskIntoConstraints="NO" id="5sa-zJ-KS7">
@@ -230,6 +231,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TzL-so-hhH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1473" y="-630"/>
+        </scene>
+        <!--Edit Profile View Controller-->
+        <scene sceneID="kMQ-HU-2Lr">
+            <objects>
+                <viewController id="b1Z-0v-Mvn" customClass="EditProfileViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4qk-Ta-GzQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="OHx-cV-GPC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e3b-j5-6mG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fdl-BE-m76">
+                                <rect key="frame" x="20" y="114" width="560" height="60"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Why are you awesome ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnN-qN-IEY">
+                                <rect key="frame" x="20" y="85" width="185" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RCx-Za-lyG">
+                                <rect key="frame" x="160" y="199" width="280" height="280"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="t6h-5e-13n">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="790-w6-ETT">
+                            <connections>
+                                <action selector="saveBarButtonItemPressed:" destination="b1Z-0v-Mvn" id="YnC-VV-K8u"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="profilePictureImageView" destination="RCx-Za-lyG" id="xJd-jK-HCy"/>
+                        <outlet property="saveBarButtonItem" destination="790-w6-ETT" id="0vw-2Y-D5J"/>
+                        <outlet property="tagLineTextView" destination="fdl-BE-m76" id="BDI-ev-yiF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eq8-lz-VpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2169" y="-630"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8GS-sb-ChE">

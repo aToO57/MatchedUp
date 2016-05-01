@@ -17,6 +17,7 @@
 		5A5556101CD3DC1600B237E5 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A55560F1CD3DC1600B237E5 /* loginViewController.m */; };
 		5A61A1531CD6022000FA9E18 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A61A1521CD6022000FA9E18 /* HomeViewController.m */; };
 		5A61A1571CD6066E00FA9E18 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A61A1561CD6066E00FA9E18 /* SettingsViewController.m */; };
+		5A61A15B1CD608FC00FA9E18 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A61A15A1CD608FC00FA9E18 /* EditProfileViewController.m */; };
 		5AE5CB911CD4B9F20017C71C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE5CB901CD4B9F20017C71C /* Constants.m */; };
 		5AEB89E31CD3F26500F140DE /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEB89E11CD3F26500F140DE /* Bolts.framework */; };
 		5AEB89E41CD3F26500F140DE /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEB89E21CD3F26500F140DE /* Parse.framework */; };
@@ -74,6 +75,8 @@
 		5A61A1521CD6022000FA9E18 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		5A61A1551CD6066E00FA9E18 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		5A61A1561CD6066E00FA9E18 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		5A61A1591CD608FC00FA9E18 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
+		5A61A15A1CD608FC00FA9E18 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		5AE5CB8F1CD4B9F20017C71C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		5AE5CB901CD4B9F20017C71C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		5AEB89E11CD3F26500F140DE /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -166,6 +169,7 @@
 				5A55560D1CD3DB3000B237E5 /* Login */,
 				5A61A1501CD601D800FA9E18 /* Home */,
 				5A61A1541CD6064800FA9E18 /* Settings */,
+				5A61A1581CD608CB00FA9E18 /* EditProfile */,
 				5A5555D71CD3DB2600B237E5 /* Supporting Files */,
 			);
 			path = MatchedUp;
@@ -228,6 +232,15 @@
 				5A61A1561CD6066E00FA9E18 /* SettingsViewController.m */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		5A61A1581CD608CB00FA9E18 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				5A61A1591CD608FC00FA9E18 /* EditProfileViewController.h */,
+				5A61A15A1CD608FC00FA9E18 /* EditProfileViewController.m */,
+			);
+			name = EditProfile;
 			sourceTree = "<group>";
 		};
 		5AEB89DF1CD3DD8C00F140DE /* FrameWork */ = {
@@ -409,6 +422,7 @@
 			files = (
 				5A5556101CD3DC1600B237E5 /* loginViewController.m in Sources */,
 				5A5555DC1CD3DB2600B237E5 /* AppDelegate.m in Sources */,
+				5A61A15B1CD608FC00FA9E18 /* EditProfileViewController.m in Sources */,
 				5A5555D91CD3DB2600B237E5 /* main.m in Sources */,
 				5A61A1571CD6066E00FA9E18 /* SettingsViewController.m in Sources */,
 				5A61A1531CD6022000FA9E18 /* HomeViewController.m in Sources */,
