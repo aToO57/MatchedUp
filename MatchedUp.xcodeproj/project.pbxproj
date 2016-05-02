@@ -39,6 +39,7 @@
 		5AFB04971CD76372008EA83F /* TestUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB04961CD76372008EA83F /* TestUser.m */; };
 		5AFB04991CD7640C008EA83F /* ProfileImage1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AFB04981CD7640C008EA83F /* ProfileImage1.jpg */; };
 		5AFB049B1CD76894008EA83F /* astronaut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AFB049A1CD76894008EA83F /* astronaut.jpg */; };
+		5AFB049F1CD77C6B008EA83F /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFB049E1CD77C6B008EA83F /* MatchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,8 @@
 		5AFB04961CD76372008EA83F /* TestUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUser.m; sourceTree = "<group>"; };
 		5AFB04981CD7640C008EA83F /* ProfileImage1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ProfileImage1.jpg; sourceTree = "<group>"; };
 		5AFB049A1CD76894008EA83F /* astronaut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = astronaut.jpg; sourceTree = "<group>"; };
+		5AFB049D1CD77C6B008EA83F /* MatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchViewController.h; sourceTree = "<group>"; };
+		5AFB049E1CD77C6B008EA83F /* MatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +184,7 @@
 				5A61A1541CD6064800FA9E18 /* Settings */,
 				5A61A1581CD608CB00FA9E18 /* EditProfile */,
 				5A61A15C1CD60B6E00FA9E18 /* Profile */,
+				5AFB049C1CD77C46008EA83F /* Match */,
 				5AFB04941CD76319008EA83F /* CreateParseUser */,
 				5A5555D71CD3DB2600B237E5 /* Supporting Files */,
 			);
@@ -320,6 +324,15 @@
 				5AFB04961CD76372008EA83F /* TestUser.m */,
 			);
 			name = CreateParseUser;
+			sourceTree = "<group>";
+		};
+		5AFB049C1CD77C46008EA83F /* Match */ = {
+			isa = PBXGroup;
+			children = (
+				5AFB049D1CD77C6B008EA83F /* MatchViewController.h */,
+				5AFB049E1CD77C6B008EA83F /* MatchViewController.m */,
+			);
+			name = Match;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,6 +475,7 @@
 				5A5555D91CD3DB2600B237E5 /* main.m in Sources */,
 				5A61A1571CD6066E00FA9E18 /* SettingsViewController.m in Sources */,
 				5A61A1531CD6022000FA9E18 /* HomeViewController.m in Sources */,
+				5AFB049F1CD77C6B008EA83F /* MatchViewController.m in Sources */,
 				5AE5CB911CD4B9F20017C71C /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
