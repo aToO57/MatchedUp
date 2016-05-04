@@ -6,9 +6,9 @@
 //  Copyright © 2016 aTo. All rights reserved.
 //
 
-#import "JSQMessagesViewController.h"
+#import "JSMessagesViewController.h"
 
-@interface ChatViewController : JSQMessagesViewController <JS
+@interface ChatViewController : JSMessagesViewController <JSMessagesViewDelegate, JSMessagesViewDataSource>
 
 @property (strong, nonatomic) PFObject *chatRoom;
 

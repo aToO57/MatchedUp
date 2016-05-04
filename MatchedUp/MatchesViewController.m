@@ -51,7 +51,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    if([segue.identifier isEqualToString:@"matchesToChat"]){
+    if([segue.identifier isEqualToString:@"matchesToChatSegue"]){
         ChatViewController *chatVC = segue.destinationViewController;
         NSIndexPath *indexPath = sender;
         chatVC.chatRoom = [self.availableChatRooms objectAtIndex:indexPath.row];
@@ -102,10 +102,10 @@
     else{
         likedUser = [chatRoom objectForKey:@"user1"];
     }
+      
+    cell.textLabel.text = likedUser[@"profile"][@"firstName"];
     
-    cell.textLabel.text = likedUser[@"profile"][@"fisrtName"];
-    
-    //cell.imageView.image = place holder image
+    cell.imageView.image = [UIImage imageNamed:@"LaikaSpaceDog.jpg"];
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     PFQuery *queryForPhoto = [[PFQuery alloc] initWithClassName:@"Photo"];
@@ -116,6 +116,7 @@
             PFFile *pictureFile = photo[kPhotoPictureKey];
             [pictureFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
                 cell.imageView.image = [UIImage imageWithData:data];
+                NSLog(@"New image");
                 cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
                 
             }];

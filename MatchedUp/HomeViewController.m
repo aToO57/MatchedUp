@@ -41,8 +41,16 @@
     // Do any additional setup after loading the view.
     
    //[TestUser saveTestUserToParse];
+
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
     
-    
+    self.photoImageView.image = nil;
+    self.firstNameLabel.text = nil;
+    self.ageLabel.text = nil;
+    self.tagLineLabel.text = nil;
     
     self.likeButton.enabled = NO;
     self.dislikeButton.enabled = NO;
@@ -56,7 +64,12 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if(!error){
             self.photos = objects;
-            [self queryForCurrectPhotoIndex];
+            if([self allowPhoto] == NO){
+                [self setupNextPhoto];
+            }
+            else{
+                [self queryForCurrectPhotoIndex];
+            }
         }
         else{
             NSLog(@"%@", error);
@@ -115,7 +128,7 @@
 
 - (IBAction)chatBarButtonItemPressed:(UIBarButtonItem *)sender
 {
-    
+    [self performSegueWithIdentifier:@"homeToMatchesSegue" sender:sender];
 }
 
 #pragma mark - Helper Methods
@@ -188,11 +201,47 @@
 {
     if (self.currentPhotoIndex +1 < self.photos.count) {
         self.currentPhotoIndex ++;
-        [self queryForCurrectPhotoIndex];
+        if([self allowPhoto] == NO){
+            [self setupNextPhoto];
+        }
+        else{
+            [self queryForCurrectPhotoIndex];
+        }
     }
     else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No More Users to View" message:@"Check Back Later for more People!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         [alert show];
+    }
+}
+
+-(BOOL)allowPhoto
+{
+    int maxAge = [[NSUserDefaults standardUserDefaults] integerForKey:kAgeMaxKey];
+    BOOL men = [[NSUserDefaults standardUserDefaults] boolForKey:kMenEnabledKey];
+    BOOL women = [[NSUserDefaults standardUserDefaults] boolForKey:kWomenEnabledKey];
+    BOOL single = [[NSUserDefaults standardUserDefaults] boolForKey:kSingleEnabledKey];
+    
+    PFObject *photo = self.photos[self.currentPhotoIndex];
+    PFUser *user = photo[kPhotoUserKey];
+    
+    int userAge = [user[kUserProfileKey][kUserProfileAgeKey] intValue];
+    NSString *gender = user[kUserProfileKey][kUserProfileGenderKey];
+    NSString *relationshipStatus = user[kUserProfileKey][kUserProfileRelationshipStatusKey];
+    
+    if (userAge >= maxAge){
+        return NO;
+    }
+    else if (men == NO && [gender isEqualToString:@"male"]){
+        return NO;
+    }
+    else if (women == NO && [gender isEqualToString:@"female"]){
+        return NO;
+    }
+    else if (single == NO && ([relationshipStatus isEqualToString:@"single"] || relationshipStatus == nil)){
+        return NO;
+    }
+    else {
+        return YES;
     }
 }
 
@@ -207,6 +256,7 @@
         self.isLikedByCurrentUser = YES;
         self.isDislikedByCurrentUser = NO;
         [self.activities addObject:likeActivity];
+        [self checkForPhotoUserLikes];
         [self setupNextPhoto];
     }];
 }
@@ -222,7 +272,6 @@
         self.isLikedByCurrentUser = NO;
         self.isDislikedByCurrentUser = YES;
         [self.activities addObject:dislikeActivity];
-        [self checkForPhotoUserLikes];
         [self setupNextPhoto];
     }];
 }
